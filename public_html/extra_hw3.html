@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<style type="text/css">
+		    legend {
+		    width: 100%;
+		    text-align: center;
+		    }
+		  </style>
+        <meta charset="utf-8">
+        <title>Extra credit hw#3!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+		<form id="luhn-input" class="form-horizontal">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Validate Credit Card Number</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="creditnum">Credit Card Number</label>  
+		  <div class="col-md-5">
+		  <input id="creditnum" name="creditnum" type="text" placeholder="Type credit card nulmber" class="form-control input-md">
+		    
+		  </div>
+		</div>
+
+		<!-- Button (Double) -->
+	
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="calc"></label>
+			  <div class="col-md-4">
+			    <button id="validate" name="validate" type="submit" class="btn btn-primary" onclick="return luhn();">Validate</button>
+			    <input id="reset" name="reset" type="reset" class="btn btn-danger" value="reset"  />
+			  </div>
+			</div>
+
+		</fieldset>
+		</form>
+	
+		<h4 id="message" align="center" style="color:red"></h4>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+			function luhn() {
+				var luhn = document.forms["luhn-input"]["creditnum"].value;
+				if (luhn =="" || luhn == null || isNaN(luhn)) {
+					alert("Type a number");
+					return false;
+				}
+				
+		 		var ca, sum = 0, mul = 1;
+		        var len = luhn.length;
+		        while (len--)
+		        {
+		            ca = parseInt(luhn.charAt(len),10) * mul;
+		            sum += ca - (ca>9)*9;
+		            mul ^= 3; 
+		        };
+		        
+				if (sum % 10 === 0 && sum > 0) {
+					document.getElementById("message").innerHTML ='Validated!';
+					document.getElementById("message").style.color ='green';
+					return false;
+				}else{
+					document.getElementById("message").innerHTML ='Not Valid!';
+					document.getElementById("message").style.color ='red';
+					return false;
+				} 
+			};
+
+        </script>
+    </body>
+</html>
