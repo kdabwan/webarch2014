@@ -1,0 +1,41 @@
+Homework #5
+
+(1)……………………….
+GET /home?name=Kamel%20Dabwan&title=Web%20Architecture%20253 HTTP/1.1
+
+%20 char represents space.
+
+(2)………….
+PUT /wiki HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length:24
+
+url=http://www.yahoo.com
+
+How to verify:
+—— response: Stored wiki => http://www.yahoo.com
+—— http://people.ischool.berkeley.edu/~kdabwan/server/wiki direct me to yahoo.com
+
+(3)………..
+POST /wiki HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length:25                              
+
+url=http://www.google.com
+
+How to verify:
+—— response: Stored wiki => http://www.google.com
+—— http://people.ischool.berkeley.edu/~kdabwan/server/wiki direct me to google.com
+
+
+(4)……………
+resp.headers['Content-Type'] = 'image/png’
+or
+Content-Type=image/png
+
+it looks like image/jpeg works as well. 
+
+Extra Credit………
+Server send response with Content_Type that matches Accept request.
+resp.headers['Content-Type'] = request.headers['Accept']
+
