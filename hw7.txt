@@ -1,0 +1,68 @@
+
+
+Homework #7
+
+(1)…………..
+
+harbinger:~/webarch2014$ traceroute m.yelp.com
+traceroute to m.yelp.com (199.255.189.34), 30 hops max, 60 byte packets
+ 1  g3-35.inr-211-srb.Berkeley.EDU (128.32.78.3)  0.617 ms  0.680 ms  0.546 ms
+ 2  t6-1.inr-202-reccev.Berkeley.EDU (128.32.255.126)  0.798 ms  0.742 ms  0.775 ms
+ 3  xe-5-1-0.inr-001-sut.Berkeley.EDU (128.32.0.66)  0.573 ms  0.559 ms  0.546 ms
+ 4  dc-sfo-agg-1--ucb-10ge.cenic.net (137.164.50.16)  1.106 ms  1.085 ms  1.060 ms
+ 5  oak-agg2--sfo-agg1-10g.cenic.net (137.164.22.25)  1.957 ms  1.937 ms  1.930 ms
+ 6  dc-paix-px1--oak-core1-ge.cenic.net (137.164.47.174)  2.823 ms dc-paix-px1--oak-core1-ge.cenic.net (137.164.47.18)  2.823 ms dc-paix-px1--oak-core1-ge.cenic.net (137.164.47.174)  2.833 ms
+ 7  abovenet--paix-px1.cenic.net (198.32.251.154)  2.897 ms  2.880 ms  2.853 ms
+ 8  ae0.mpr2.pao1.us.above.net (64.125.25.166)  3.064 ms  3.064 ms  3.043 ms
+ 9  ae7.cr2.sjc2.us.above.net (64.125.25.137)  3.391 ms  3.379 ms  3.331 ms
+10  ae5.mpr4.sfo7.us.above.net (64.125.26.22)  4.364 ms  4.358 ms  4.340 ms
+11  209.66.115.62.t01325-02.above.net (209.66.115.62)  4.098 ms  4.129 ms  4.073 ms
+12  m.sfo1.yelp.com (199.255.189.34)  4.189 ms  4.025 ms  4.003 ms
+
+
+
+
+(2)…………..
+
+ m.yelp.com (199.255.189.34)
+
+(3)…………..
+
+No
+
+host -v -t A amplab.cs.berkeley.edu
+Trying "amplab.cs.berkeley.edu"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50039
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 5, ADDITIONAL: 7
+
+;; QUESTION SECTION:
+;amplab.cs.berkeley.edu.		IN	A
+
+;; ANSWER SECTION:
+amplab.cs.berkeley.edu.	86400	IN	CNAME	www-research2.cs.berkeley.edu.
+www-research2.cs.berkeley.edu. 86400 IN	A	128.32.37.248
+
+;; AUTHORITY SECTION:
+cs.berkeley.edu.	86400	IN	NS	cgl.UCSF.edu.
+cs.berkeley.edu.	86400	IN	NS	adns1.berkeley.edu.
+cs.berkeley.edu.	86400	IN	NS	ns.cs.berkeley.edu.
+cs.berkeley.edu.	86400	IN	NS	ns.EECS.berkeley.edu.
+cs.berkeley.edu.	86400	IN	NS	adns2.berkeley.edu.
+
+;; ADDITIONAL SECTION:
+ns.cs.berkeley.edu.	86400	IN	A	169.229.60.61
+ns.EECS.berkeley.edu.	86400	IN	A	169.229.60.153
+cgl.UCSF.edu.		86400	IN	A	169.230.27.20
+adns1.berkeley.edu.	172800	IN	A	128.32.136.3
+adns1.berkeley.edu.	3600	IN	AAAA	2607:f140:ffff:fffe::3
+adns2.berkeley.edu.	172800	IN	A	128.32.136.14
+adns2.berkeley.edu.	3600	IN	AAAA	2607:f140:ffff:fffe::e
+
+
+harbinger:~/webarch2014$ traceroute amplab.cs.berkeley.edu
+traceroute to amplab.cs.berkeley.edu (128.32.37.248), 30 hops max, 60 byte packets
+ 1  g3-35.inr-211-srb.Berkeley.EDU (128.32.78.3)  0.650 ms  0.619 ms  0.879 ms
+ 2  t6-1.inr-202-reccev.Berkeley.EDU (128.32.255.126)  171.352 ms  171.465 ms  171.452 ms
+ 3  reccev-eecs-br-10GE.EECS.Berkeley.EDU (128.32.255.58)  2.523 ms  2.509 ms  2.485 ms
+ 4  soda-10g-edge.EECS.Berkeley.EDU (169.229.59.242)  2.314 ms  2.293 ms  2.385 ms
+ 5  www-research2.CS.Berkeley.EDU (128.32.37.248)  1.530 ms !X  1.595 ms !X  1.578 ms !X
