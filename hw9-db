@@ -1,0 +1,61 @@
+1.1)……………………
+ select count(*) from links where created > "2014-10-14";
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+select * from links where created > "2014-10-14" order by created;
++----------------------+-----------+-----------+------------+
+| long_url             | short_url | hit_count | created    |
++----------------------+-----------+-----------+------------+
+| http://hao123.com    | 9e898     |       181 | 2014-10-15 |
+| http://live.com      | d2c05     |        67 | 2014-10-15 |
+| http://google.com    | 891cb     |       137 | 2014-10-16 |
+| http://ebay.com      | b0f7e     |        76 | 2014-10-17 |
+| http://wordpress.com | 8686e     |       142 | 2014-10-20 |
+| http://baidu.com     | 71bce     |        71 | 2014-10-22 |
++----------------------+-----------+-----------+------------+
+
+1.2)……………………
+select count(*) from links where hit_count < 40;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+select * from links where hit_count < 40 order by hit_count;
++---------------------+-----------+-----------+------------+
+| long_url            | short_url | hit_count | created    |
++---------------------+-----------+-----------+------------+
+| http://google.de    | 5f379     |         7 | 2014-10-07 |
+| http://blogspot.com | 04789     |        32 | 2014-09-14 |
+| http://facebook.com | 6733e     |        32 | 2014-08-30 |
+| http://yahoo.co.jp  | 8b26f     |        39 | 2014-08-31 |
++---------------------+-----------+-----------+------------+
+
+2.1)………………..
+ insert into links values("http://gmail.com","gmail",100,"2014-10-28");
+Query OK, 1 row affected (0.14 sec)
+
+select * from links where short_url="gmail";
++------------------+-----------+-----------+------------+
+| long_url         | short_url | hit_count | created    |
++------------------+-----------+-----------+------------+
+| http://gmail.com | gmail     |       100 | 2014-10-28 |
++------------------+-----------+-----------+------------+
+
+2.2)
+No. Atomicity. all updates happened or none.
+
+3.1)…………………
+update links set hit_count = 101 where short_url="gmail";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+select * from links where short_url="gmail";
++------------------+-----------+-----------+------------+
+| long_url         | short_url | hit_count | created    |
++------------------+-----------+-----------+------------+
+| http://gmail.com | gmail     |       101 | 2014-10-28 |
++------------------+-----------+-----------+------------+
