@@ -1,54 +1,35 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<!This comment is required>
-	<title> Homework #2</title>
+	<head>
 	
-	<link rel="stylesheet" type="text/css" href="hw2_css_file1.css" />
-	<link rel="stylesheet" type="text/css" href="hw2_css_file2.css" />
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-</head>
-<body>
+		<title>Kamel Personal Page</title>
+		<meta name="description" content="This is Kamel personal page">
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	</head>
+	<body>
+		<!--Person Microdata-->
+		<div align="center" itemscope itemtype="http://schema.org/Person">
+			<span itemprop="givenname">Kamel</span>
+			<span itemprop="familyname">Dabwan</span>
+			<span>is a </span>
+  			<span itemprop="jobTitle">student</span>
+  			<span>at </span>
+  			<!--Organization Microdata-->
+  			<div itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
+  				<span itemprop="name">Uiversity of California, Berkeley</span>
+  				<a href="mailto:jane-doe@xyz.edu" itemprop="email">admin@berkeley.edu</a>
+  				<span itemprop="telephone">(510) 642-6000</span>
+  				<!--Address Microdata-->
+  				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				    <span itemprop="streetAddress">101 Sproul Hall</span>
+				    <span itemprop="addressLocality">Berkeley</span>,
+				    <span itemprop="addressRegion">CA</span>
+				    <span itemprop="postalCode">94720</span>
+				</div>
+  			</div> 
+		</div>	
 
-<h1 id="topLine">Welecome to Homework #2</h1>
-<h2>Make Yourself Home</h2>
-<h3 class="imprtant">Love Live Laugh</h3>
-<h4>Welcome Again!</h4>
-
-
-<p>I like to search on <a href="http://www.google.com">Goolge</a></p>
-	
-<div style="color:#FF0000;font-size:25px">
-	<p>My other favorite search engines are</p>
-</div>
-<ol start="1">
-	<li><a href="http://www.bing.com">Bing</a></li>
-	<li><a href="http://www.yahoo.com">Yahoo</a></li>
-</ol>
-
-<p>I like to read </p>
-<ul>
-	<li>Books
-		<ul>
-			<li>Funny</li>
-		
-			<li>Horror</li>
-		</ul>
-	</li>
-	<li>News
-		<ul>
-			<li>Tech Security</li>
-		</ul>
-	</li>
-	
-</ul>
-
-<img src="http://www.keepcalmandposters.com/posters/27556.png" alt="gobears" height="200" width="160">
-
-<p>I did a simple text input and button to make work as address bar that takes people to websites <a href="./extra_credit.html">Click here</a></p>
-
-
-</body>
+	</body>
 
 </html>
